@@ -20,3 +20,5 @@ Route::get("/", [PageController::class, "index"]);
 Route::get("/about", [PageController::class, "about"]);
 Route::get("/portofolio", [PageController::class, "portofolio"]);
 Route::get("/contact", [PageController::class, "contact"]);
+
+Route::get('/posts', [PostController::class, "index"]);
