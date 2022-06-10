@@ -11,6 +11,9 @@
                     <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ request()->is('phones') ? 'active' : '' }}" href="/phones">Phones</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ request()->is('portofolio') ? 'active' : '' }}" href="/portofolio">Portofolio</a>
                 </li>
                 <li class="nav-item">
