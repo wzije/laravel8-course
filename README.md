@@ -18,12 +18,14 @@ This project is used as a laravel course material.
    - phones
    - kinds
    - colors
+   - release_dates
    - products
    - posts (no relation)
 
 2. Relations
    - `Phone` -> hasMany -> `Kind` ; `Kind` -> belongsTo -> `Phone`
    - `Kind` -> hasMany -> `Color` ; `Color` -> belongsTo -> `Kind`
+   - `Kind` -> hasOne -> `ReleaseDate`;  `ReleaseDate` -> belongsTo -> `Kind`
    - `Phone` -> belongsToMany -> `Product` ; Pivot ; `Product` -> belongsToMany -> `Phone`
 
 ## Steps
