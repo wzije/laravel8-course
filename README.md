@@ -19,6 +19,7 @@ This project is used as a laravel course material.
    - kinds
    - colors
    - products
+   - posts (no relation)
 
 2. Relations
    - `Phone` -> hasMany -> `Kind` ; `Kind` -> belongsTo -> `Phone`
