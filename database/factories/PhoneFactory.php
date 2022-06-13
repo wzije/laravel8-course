@@ -14,7 +14,9 @@ class PhoneFactory extends Factory
     public function definition()
     {
         return [
-
+            "name" => '',
+            "founded" => '',
+            "description" => $this->faker->paragraph,
         ];
     }
 }

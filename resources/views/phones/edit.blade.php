@@ -1,8 +1,17 @@
 @extends('layouts.app')
 
+{{-- Use section directive --}}
+@section('breadcrumbs')
+    {{-- call parent section --}}
+    @parent
+    <li class="breadcrumb-item" aria-current="page"><a href="/phones">Phones</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit {{ $phone->name }} </a></li>
+@endsection
+
 @section('content')
-    <h1>Edit Phone {{ $phone->name }}</h1>
+    <h3>Edit Form </h3>
     <hr>
+    {{-- show errors --}}
     @include('layouts.error')
 
     <form action="/phones/{{ $phone->id }}" method="POST">
@@ -20,6 +29,6 @@
             <label for="description" class="form-label">Description</label>
             <textarea class="form-control" id="description" name="description">{{ $phone->description }}</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Update Data</button>
+        <button type="submit" class="btn btn-primary">Update</button>
     </form>
 @endsection

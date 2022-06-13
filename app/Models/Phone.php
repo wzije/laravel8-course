@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,10 +12,31 @@ class Phone extends Model
 {
     use HasFactory;
 
+    use SoftDeletes;
+
     protected $table = "phones";
 
     protected $fillable = ["name", "founded", "description"];
 
+    public function kinds()
+    {
+        return $this->hasMany(Kind::class)->select('id', 'name');
+    }
+
+    public function colors()
+    {
+        return $this->hasManyThrough(
+            Color::class,
+            Kind::class,
+            'phone_id',
+            "kind_id"
+        );
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
 
     function findByName($name)
     {
@@ -26,14 +48,11 @@ class Phone extends Model
         return $this->max('id');
     }
 
-    function filter(Request $request)
+    function scopeFilter($query, Request $request)
     {
+        $key = $request->get('key');
+        if ($key) $query = $query->where('name', 'like', '%' . $key . '%');
 
-        $data = $this
-            ->where('name', 'like', `%` . $request->get('name') . `%`)
-            ->orWhere('founded', $request->get('founded'))
-            ->get();
-
-        return $data;
+        return $query;
     }
 }

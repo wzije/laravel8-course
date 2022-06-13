@@ -4,10 +4,10 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Top navbar example · Bootstrap v5.0</title>
+
+    <title>LC | @yield('title', env('APP_NAME', 'Laravel Course'))</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/navbar-static/">
-
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -37,8 +37,6 @@
         }
     </style>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">    <!-- Custom styles for this template -->
-
-    @method('css')
+    @stack('css')
 
 </head>

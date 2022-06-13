@@ -15,7 +15,9 @@ class PhoneController extends Controller
      */
     public function index(Request $request)
     {
-        $phones = (new Phone())->filter($request);
+        $phones = Phone::filter($request)
+            ->paginate($request->get('perpage') ?: env('PER_PAGE'));
+
         return view('phones.index')->with('phones', $phones);;
     }
 
@@ -66,7 +68,6 @@ class PhoneController extends Controller
      */
     public function show($id)
     {
-
         $phone = Phone::find($id);
 
         return view('phones.detail')->with('phone', $phone);
