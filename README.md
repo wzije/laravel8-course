@@ -83,14 +83,14 @@ DB_PASSWORD=your_password
    #npm install --save jquery
    #npm install --save @fortawesome/fontawesome-free
    ```
-### Start the Application
+### Run Application
    ```
    php artisan serv
    ```
 
-## Others 
-- DB Convention
-- Laravel Convention
+## Notes 
+- [DB Convention](https://github.com/wzije/dev-notes/blob/main/database_convensions.md)
+- [Laravel Convention](https://github.com/wzije/dev-notes/blob/main/laravel_conventions.md)
 
 ## Credit
 Thanks to [laravel](https://laravel.com/) and [bootstraps](https://getbootstrap.com/).
